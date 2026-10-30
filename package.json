@@ -1,0 +1,15 @@
+{
+  "name": "cynbit-blueprint",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Project Blueprint: an interactive scoping and estimate tool prototype for cynbit.in",
+  "scripts": {
+    "test": "node --test \"tests/*.test.js\"",
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
