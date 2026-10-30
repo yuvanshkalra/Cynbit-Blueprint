@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Project Blueprint</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Scope a software, AI or cloud project and get an indicative budget, timeline and team in under two minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Schibsted+Grotesk:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <h1>Project Blueprint</h1>
+    <p class="lede">Choose what you are building. The plan, budget and team update as you go, and you can send the result to Cynbit as a ready-made brief.</p>
+    <p class="sample" id="sample-note" hidden>You are looking at a sample project. Change anything to make it yours.</p>
+  </header>
+
+  <main class="layout">
+    <form class="form" id="plan-form" autocomplete="off" novalidate></form>
+    <aside class="sheet" id="sheet" aria-live="polite" aria-label="Estimate"></aside>
+  </main>
+
+  <section class="brief" aria-labelledby="brief-title">
+    <h2 id="brief-title">Send this plan to Cynbit</h2>
+    <p class="muted">Add your details and the brief fills itself in. This prototype does not send anything; copy the brief into an email or share the plan code.</p>
+    <div class="brief-grid">
+      <div class="fields">
+        <label for="c-name">Your name</label>
+        <input id="c-name" type="text" autocomplete="name">
+        <label for="c-email">Email</label>
+        <input id="c-email" type="email" autocomplete="email">
+        <label for="c-company">Company <span class="muted">(optional)</span></label>
+        <input id="c-company" type="text" autocomplete="organization">
+        <label for="c-notes">Anything else we should know <span class="muted">(optional)</span></label>
+        <textarea id="c-notes" rows="4" placeholder="Deadlines, existing systems, who will use it"></textarea>
+      </div>
+      <div class="output">
+        <label for="brief-text">Your brief</label>
+        <textarea id="brief-text" rows="16" readonly></textarea>
+        <div class="actions">
+          <button type="button" class="btn primary" id="copy-brief">Copy brief</button>
+          <button type="button" class="btn" id="copy-link">Copy plan link</button>
+          <a class="btn" id="mailto" href="#">Open in email app</a>
+        </div>
+        <p class="status" id="status" role="status"></p>
+        <p class="muted small">Send it to <span class="selectable" id="to-address"></span>. The plan code is <span class="selectable mono" id="plan-code"></span>.</p>
+        <label class="visually-hidden" for="share-link">Plan link</label>
+        <input class="visually-hidden" id="share-link" type="text" readonly tabindex="-1">
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Estimates are indicative ranges from a prototype model and are not quotes. Rates and effort figures are placeholders that Cynbit can calibrate against its own project history.</p>
+  </footer>
+</div>
+
+<div class="strip" id="strip" hidden>
+  <div class="strip-fig"><span class="muted small">Budget</span><strong id="strip-budget"></strong></div>
+  <button type="button" class="btn primary" id="strip-view">View plan</button>
+</div>
+
+<script type="module" src="./src/app.js"></script>
+</body>
+</html>
